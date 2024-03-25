@@ -1,0 +1,79 @@
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    
+    //declarar variaveis
+    String nome ,sexo,estadoCivil;
+    int idade;
+    double salario;
+    
+    //entrada de dados
+    Scanner entrada = new Scanner(System.in);
+    
+    // ler nome com mais de 3 caracteres
+    do{
+      System.out.println("Digite seu nome: ");
+      nome = entrada.nextLine();
+      if(nome.length() <= 3){
+        System.out.println("Nome precisa ter mais de 3       caracteres");
+      }
+    }while(nome.length() <= 3);
+      
+    // ler idade entre 0 e 150
+    do{
+      System.out.println("Digite sua idade: ");
+      idade = entrada.nextInt();
+      if(idade < 0 || idade > 150){
+        System.out.println("Idade precisa estar entre 0 e 150");
+      }
+    }while(idade < 0 || idade > 150);
+
+    // ler salario maior que zero
+    do{
+      System.out.println("Digite seu salario: ");
+      salario = entrada.nextDouble();
+      if(salario <= 0){
+        System.out.println("Salario precisa ser maior que zero");
+      }
+    }while(salario < 0);
+    
+    // ler sexo (m-masculino, f-feminino, o-outros)
+    do{
+      System.out.println("Digite seu sexo: ");
+      sexo = entrada.next();
+      if(!(sexo.equals("M") || sexo.equals("F") || sexo.equals("O"))){
+        System.out.println("Sexo precisa ser M, F ou O");
+      }
+    }while(!(sexo.equals("M") || sexo.equals("F") || sexo.equals("O")));
+    
+    // ler estado civil (s-solteiro, c-casado, v-viuvo,   
+   do{
+      System.out.println("Digite seu estado civil: ");
+      estadoCivil = entrada.next();
+      if(!(estadoCivil.equals("S") || estadoCivil.equals("C") || estadoCivil.equals("V") || estadoCivil.equals("D"))){
+        System.out.println("Estado civil precisa ser S, C, V ou D ");
+      }
+ 
+    }while(!(estadoCivil.equals("S") || estadoCivil.equals("C") ||   
+     estadoCivil.equals("V") || estadoCivil.equals("D")));   
+
+    entrada.close();
+
+    // Imprimir os dados
+    System.out.println("----------------------------------");
+    System.out.println("Nome: " + nome);
+    System.out.println("----------------------------------");
+    System.out.println("Idade: " + idade + " anos");
+    System.out.println("----------------------------------");
+    System.out.println("Salario: " + "R$ " + salario);
+    System.out.println("----------------------------------");
+    System.out.println("Sexo: " + sexo);
+    System.out.println("----------------------------------");
+    System.out.println("Estado civil: " + estadoCivil);
+    System.out.println("----------------------------------");
+  }
+
+   
+}
+  
