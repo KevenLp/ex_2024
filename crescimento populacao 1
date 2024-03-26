@@ -1,0 +1,34 @@
+import java.util.Scanner;
+public class Main {
+  public static void main(String[] args) {
+  double populacao_A , populacao_B, anos = 0;
+  double taxa_A, taxa_B;
+
+  // Exibe mensagem indicando o objetivo do programa
+    System.out.println("Considerando que 2 paises tem populações e taxas de crescimento diferentes, sendoa A = 800.00 Habitantes e B = 2000.00 Habitantes com taxa de crescimento de 3% e 1.5% respectivamente, em quanto tempo a população do país A será maior ou igual da do país B ?");
+
+    System.out.println(" ");
+
+    System.out.println("Aguarde, calculando ...");
+    
+  // inicializa variaveis
+    populacao_A = 80.000;
+    populacao_B = 200.000;
+    taxa_A = 0.03;
+    taxa_B = 0.015;
+    // calcula a população depois de um ano
+    do{
+      populacao_A = populacao_A + (populacao_A * taxa_A);
+      populacao_B = populacao_B + (populacao_B * taxa_B);
+      anos++;
+    }while(populacao_A < populacao_B);
+    
+    // imprime o resultado
+    System.out.println(" ");
+    
+    System.out.println("A população do país A ultrapassa a do país B em " + anos + " anos");
+  
+  }
+
+
+}

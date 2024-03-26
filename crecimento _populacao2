@@ -1,0 +1,81 @@
+import java.util.Scanner;
+
+public class Main {
+  public static void main(String[] args) {
+    double populacao_A, populacao_B, anos = 0;
+    double taxa_A, taxa_B;
+    Scanner entrada = new Scanner(System.in);
+
+    // Exibe mensagem indicando o objetivo do programa
+    System.out.println(
+        "Considerando que 2 paises tem populações e taxas de crescimento diferentes, sendoa A com população maior que B e B com taxa de crescimento inferior ao país A, em quanto tempo a população do país A será maior ou igual da do país B ?");
+
+    System.out.println(" ");
+
+    // inicializa variaveis
+    populacao_A = 0;
+    populacao_B = 0;
+    taxa_A = 0;
+    taxa_B = 0;
+    // Ler e validar população do país A
+    do {
+      System.out.println("Informe a população do país A: ");
+      populacao_A = entrada.nextDouble();
+      // validar entrada
+      if (populacao_A <= 0) {
+        System.out.println("Valor inválido, digite novamente");
+      }
+    } while (populacao_A <= 0);
+
+    // ler taxa de crescimento do país A
+    do {
+      System.out.println("Informe a taxa de crescimento do país A: ");
+      taxa_A = entrada.nextDouble();
+      // validar entrada
+      if (taxa_A <= 0) {
+        System.out.println("Valor inválido, digite novamente");
+      }
+    } while (taxa_A <= 0);
+
+    // Ler e validar população do país B
+    do {
+      System.out.println("Informe a população do país B: ");
+      populacao_B = entrada.nextDouble();
+      // validar entrada
+      if (populacao_B <= 0 || populacao_B < populacao_A) {
+        System.out.println("Valor inválido, digite novamente");
+      }
+    } while (populacao_B <= 0 || populacao_B < populacao_A);
+
+    // ler taxa de crescimento do país B
+    do {
+      System.out.println("Informe a taxa de crescimento do país B: ");
+      taxa_B = entrada.nextDouble();
+      // validar entrada
+      if (taxa_B <= 0 || taxa_B > taxa_A) {
+        System.out.println("Valor inválido, digite um valor maior que zero(0) e menor que a taxa dos país B !");
+      }
+    } while (taxa_B <= 0 || taxa_B > taxa_A);
+    // Calcular e exibir a quantidade de anos necessários para que a população do
+    // país A ultrapsse ou iquale a do país B
+    System.out.println(" ");
+
+    System.out.println("Aguarde, calculando ...");
+
+    do {
+      populacao_A = populacao_A + (populacao_A * taxa_A);
+      populacao_B = populacao_B + (populacao_B * taxa_B);
+      anos++;
+    } while (populacao_A < populacao_B);
+
+    // imprime o resultado
+    System.out.println(" ");
+
+    System.out.println("A população do país A ultrapassa a do país B em " + anos + " anos");
+
+    //Liberar a instância da classe Scanner
+    entrada.close();
+
+  }
+
+}
